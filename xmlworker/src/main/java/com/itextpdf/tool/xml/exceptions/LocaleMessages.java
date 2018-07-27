@@ -81,7 +81,7 @@ public class LocaleMessages {
 	public static final String STYLE_NOTPARSED = "html.tag.style.notparsed";
 
 	private static LocaleMessages myself = new LocaleMessages();
-	private final ResourceBundle bundle;
+	private ResourceBundle bundle = null;
 
 	/**
 	 * Returns the {@link LocaleMessages} with as Locale the default jvm locale.
@@ -95,14 +95,23 @@ public class LocaleMessages {
 	 *
 	 */
 	public LocaleMessages() {
-		bundle = ResourceBundle.getBundle("errors/errors", Locale.getDefault());
+		
+		try{
+			bundle = ResourceBundle.getBundle("errors/errors", Locale.getDefault());
+		}catch(Exception e) {
+			//TODO;
+		}
 	}
 	/**
 	 * @param locale the {@link Locale} to use.
 	 *
 	 */
 	public LocaleMessages(final Locale locale) {
-		bundle = ResourceBundle.getBundle("errors/errors", locale);
+		try {
+			bundle = ResourceBundle.getBundle("errors/errors", locale);
+		} catch (Exception e) {
+			// TODO;
+		}
 	}
 
 	/**
@@ -111,6 +120,8 @@ public class LocaleMessages {
 	 * @return the message
 	 */
 	public String getMessage(final String key) {
+		if(bundle == null)
+			return key;
 		return bundle.getString(key);
 	}
 }
