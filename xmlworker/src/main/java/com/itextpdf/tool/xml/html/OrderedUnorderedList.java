@@ -86,7 +86,7 @@ public class OrderedUnorderedList extends AbstractTagProcessor {
 
 			int i = 0;
 			for (Element li : listElements) {
-				if (li instanceof ListItem) {
+				if (li instanceof ListItem && tag.getChildren().size() < i) {
 					Tag child = tag.getChildren().get(i);
 					if (size == 1) {
 						child.getCSS().put(CSS.Property.MARGIN_TOP,

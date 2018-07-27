@@ -11,10 +11,10 @@
 
   <groupId>com.itextpdf.tool</groupId>
   <artifactId>xmlworker</artifactId>
-  <version>5.5.14-SNAPSHOT</version>
+  <version>5.5.14-SNAPSHOT+list_hotfix</version>
 
-  <name>iText XML Worker</name>
-  <description>Parses XML to PDF, with CSS support, using iText</description>
+  <name>iText XML Worker Fork</name>
+  <description>Parses XML to PDF, with CSS support, using iText (This is just a fork of the official project by iText Software)</description>
   <url>http://www.itextpdf.com/</url>
 
   <licenses>
@@ -72,7 +72,7 @@
     <dependency>
       <groupId>com.itextpdf</groupId>
       <artifactId>itextpdf</artifactId>
-      <version>${project.version}</version>
+      <version>5.5.13</version>
       <optional>true</optional>
     </dependency>
     <dependency>
